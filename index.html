@@ -7,6 +7,7 @@
     <meta name="author" content="Krystian Konecki" />
     <title>Weather App</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/56327ab928.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
@@ -26,9 +27,14 @@
         </div>
         <div class="aside__form form">
           <div class="form__container">
-            <input type="text" class="form__item form__input" placeholder="Wybierz miasto">
+            <div class="form__item">
+                <input type="text" class="form__input" placeholder="Wybierz miasto">
+                <button class="form__button form__button--in">></button>
+            </div>
             <p class="form__item form__text">albo</p>
-            <button class="form__item form__button">Pozwól się znaleść<img src="" alt="" class="form__button--image"></button>
+            <div class="form__item">
+                <button class="form__button form__button--btn">Pozwól się znaleść<span class="form__button--icon fas fa-map-marker-alt"></span></button>
+            </div>
           </div>
         </div>
       </aside>
