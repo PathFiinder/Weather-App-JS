@@ -1,0 +1,73 @@
+.main__aside.aside
+    min-height: 100vh
+    //background: rgba(255, 255, 255, 0.23) dla desktop
+    display: block
+    visibility: hidden
+    animation: showAside 0.1s
+    animation-delay: 2.8s
+    animation-fill-mode: forwards
+    position: relative
+    .aside__logo
+        position: absolute
+        top: 60px
+        left: 50%
+        transform: translateX(-50%)
+        .aside__title
+            position: absolute
+            bottom: 35px
+            left: 50%
+            transform: translateX(-50%)
+            min-width: 140px
+            font-size: 23px
+            color: #003C67
+            font-weight: 400
+    .aside__form.form
+        position: absolute
+        bottom: 140px
+        left: 50%
+        transform: translateX(-50%)
+        background: rgba(255, 255, 255, 0.23)
+        height: 180px
+        width: 260px
+        .form__container
+            height: 100px
+            width: 220px
+            //background-color: red
+            margin: 40px 20px 
+            display: flex
+            flex-direction: column
+            .form__item
+                flex-basis: 33%
+                text-align: center
+            .form__input
+                border: none
+                background: #D5EDFF
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25)
+                border-radius: 5px
+                color: rgba(0, 0, 0, 0.5)
+                position: relative
+                &::before
+                    content: ">"
+                    position: absolute
+                    top: 50%
+                    right: 20px
+                    transform: translateY(-50%)
+
+            .form__text
+                display: flex
+                align-items: center
+                justify-content: center
+                color: rgba(0, 0, 0, 0.78)
+            .form__button
+                border: none
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25)
+                border-radius: 5px
+                background: #002947
+                color: white
+            
+
+@keyframes showAside
+    from
+        visibility: hidden
+    to
+        visibility: visible

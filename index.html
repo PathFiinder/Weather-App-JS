@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="Krystian Konecki" />
+    <title>Weather App</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div class="loading-cloud loading-cloud--active">
+        <div class="loading-cloud__logo logo">
+          <img src="./images/loading_cloud.png" alt="Logo image" class="logo__image">
+          <h1 class="logo__title">Weather App</h1>
+        </div>
+        <div class="loading-cloud__bar">
+        </div>
+    </div>
+    <main class="main">
+      <aside class="main__aside aside">
+        <div class="aside__logo">
+          <img src="./images/loading_cloud.png" alt="Logo image" class="aside__logoImage">
+          <h1 class="aside__title">Weather App</h1>
+        </div>
+        <div class="aside__form form">
+          <div class="form__container">
+            <input type="text" class="form__item form__input" placeholder="Wybierz miasto">
+            <p class="form__item form__text">albo</p>
+            <button class="form__item form__button">Pozwól się znaleść<img src="" alt="" class="form__button--image"></button>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

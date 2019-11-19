@@ -1,0 +1,88 @@
+.loading-cloud
+    display: none
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    &__logo.logo
+        margin: 20px 0 15px
+        position: relative
+        .logo__title
+            position: absolute
+            bottom: 35px
+            left: 50%
+            transform: translateX(-50%)
+            min-width: 140px
+            font-size: 23px
+            color: #003C67
+            font-weight: 400
+    &__bar
+        height: 8px
+        width: 88px
+        background: #FFFFFF
+        border-radius: 5px
+        margin: 0 auto
+        position: relative
+        &::before
+            content: ""
+            position: absolute
+            top: 0
+            left: 0
+            height: 8px
+            width: 88px
+            border-radius: 5px
+            background: rgba(0, 60, 103, 0.24)
+            transition: width
+            animation: loadingBar 0.8s
+            animation-delay: 1s
+            animation-fill-mode: forwards
+    &--active
+        display: block
+        animation: loadingPage 4s, hiddenPage 0.5s
+        animation-delay: 0s, 2.2s
+        animation-fill-mode: forwards
+    
+
+@keyframes hiddenPage
+    0%
+        visibility: visible
+        opacity: 100%
+    25%
+        opacity: 75%
+    50%
+        opacity: 50%
+    75%
+        opacity: 25%
+    100%
+        visibility: hidden
+        opacity: 0%
+
+    
+@keyframes loadingPage
+    from
+        opacity: 0%
+    to
+        opacity: 100%
+
+@keyframes loadingBar 
+    0%
+        width: 0px
+    11%
+        width: 10px
+    22%
+        width: 20px
+    33%
+        width: 30px
+    44%
+        width: 40px
+    55%
+        width: 50px
+    66%
+        width: 60px
+    77%
+        width: 70px
+    88%
+        width: 80px
+    100%
+        width: 88px
+    
