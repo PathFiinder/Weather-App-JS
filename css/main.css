@@ -437,7 +437,7 @@ body {
 
 .main__aside.aside .aside__logo {
   position: absolute;
-  top: 60px;
+  top: 120px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -457,7 +457,7 @@ body {
 
 .main__aside.aside .aside__form.form {
   position: absolute;
-  bottom: 140px;
+  bottom: 180px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -496,6 +496,7 @@ body {
   height: 100%;
   width: 100%;
   text-align: center;
+  position: relative;
 }
 
 .main__aside.aside .aside__form.form .form__container .form__item .form__button {
@@ -523,6 +524,10 @@ body {
   color: white;
   border-radius: 50%;
   font-size: 12px;
+}
+
+.main__aside.aside .aside__form.form .form__container .form__item .form__button--hidden {
+  display: none;
 }
 
 .main__aside.aside .aside__form.form .form__container .form__item .form__button--btn {
@@ -554,6 +559,40 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.main__aside.aside .aside__form.form .form__container .form__item .form__searchedCities, .main__aside.aside .aside__form.form .form__container .form__item .searchedCities {
+  display: none;
+  height: auto;
+  max-height: 88px;
+}
+
+.main__aside.aside .aside__form.form .form__container .form__item .form__searchedCities--active, .main__aside.aside .aside__form.form .form__container .form__item .searchedCities--active {
+  display: block;
+  width: 220px;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  z-index: 1;
+  background: rgba(39, 88, 123, 0.96);
+  border-radius: 0px 0px 5px 5px;
+  overflow: scroll;
+}
+
+.main__aside.aside .aside__form.form .form__container .form__item .form__searchedCities .searchedCities__item, .main__aside.aside .aside__form.form .form__container .form__item .searchedCities .searchedCities__item {
+  border: 1px solid rgba(212, 237, 255, 0.2);
+  border-left: none;
+  border-right: none;
+  height: 22px;
+  font-size: 11px;
+  line-height: 22px;
+  overflow: hidden;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.69);
+}
+
+.main__aside.aside .aside__form.form .form__container .form__item .form__searchedCities .searchedCities__item--last, .main__aside.aside .aside__form.form .form__container .form__item .searchedCities .searchedCities__item--last {
+  border-bottom: none;
 }
 
 .main__aside.aside .aside__form.form .form__container .form__text {
