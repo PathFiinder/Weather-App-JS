@@ -437,7 +437,7 @@ body {
 
 .main__aside.aside .aside__logo {
   position: absolute;
-  top: 120px;
+  top: 60px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -457,7 +457,7 @@ body {
 
 .main__aside.aside .aside__form.form {
   position: absolute;
-  bottom: 180px;
+  bottom: 140px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);

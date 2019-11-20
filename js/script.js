@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const loadCities = () => {
     const repData = [];
-    return fetch("../data/pl.json")
+    return fetch("https://pathfiinder.github.io/Weather-App-JS/data/pl.json")
       .then(resp => resp.json())
       .then(data => {
         data.forEach(ele => {
