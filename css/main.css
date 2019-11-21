@@ -234,6 +234,10 @@ body {
   position: relative;
 }
 
+main {
+  min-height: 100vh;
+}
+
 .loading-cloud {
   display: none;
   position: absolute;
@@ -422,7 +426,7 @@ body {
   }
 }
 
-.main__aside.aside {
+.aside {
   min-height: 100vh;
   display: block;
   visibility: hidden;
@@ -435,7 +439,26 @@ body {
   position: relative;
 }
 
-.main__aside.aside .aside__logo {
+.aside--hide {
+  display: none;
+}
+
+.aside__icon {
+  display: none;
+  color: white;
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.aside__icon--active {
+  display: block;
+}
+
+.aside__logo {
   position: absolute;
   top: 60px;
   left: 50%;
@@ -443,7 +466,7 @@ body {
           transform: translateX(-50%);
 }
 
-.main__aside.aside .aside__logo .aside__title {
+.aside__logo .aside__title {
   position: absolute;
   bottom: 35px;
   left: 50%;
@@ -455,7 +478,7 @@ body {
   font-weight: 400;
 }
 
-.main__aside.aside .aside__form.form {
+.aside__form.form {
   position: absolute;
   bottom: 140px;
   left: 50%;
@@ -466,7 +489,7 @@ body {
   width: 260px;
 }
 
-.main__aside.aside .aside__form.form .form__container {
+.aside__form.form .form__container {
   height: 100px;
   width: 220px;
   margin: 40px 20px;
@@ -479,14 +502,14 @@ body {
           flex-direction: column;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__item {
+.aside__form.form .form__container .form__item {
   -ms-flex-preferred-size: 33%;
       flex-basis: 33%;
   text-align: center;
   position: relative;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__item .form__input {
+.aside__form.form .form__container .form__item .form__input {
   border: none;
   background: #D5EDFF;
   -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
@@ -499,14 +522,14 @@ body {
   position: relative;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__item .form__button {
+.aside__form.form .form__container .form__item .form__button {
   border: none;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__item .form__button--in {
+.aside__form.form .form__container .form__item .form__button--in {
   position: absolute;
   top: 50%;
-  right: 20px;
+  right: 7px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   height: 22px;
@@ -526,11 +549,11 @@ body {
   font-size: 12px;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__item .form__button--hidden {
+.aside__form.form .form__container .form__item .form__button--hidden {
   display: none;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__item .form__button--btn {
+.aside__form.form .form__container .form__item .form__button--btn {
   -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
@@ -541,10 +564,10 @@ body {
   position: relative;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__item .form__button--btn .form__button--icon {
+.aside__form.form .form__container .form__item .form__button--btn .form__button--icon {
   position: absolute;
   top: 50%;
-  right: 20px;
+  right: 7px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   color: white;
@@ -561,13 +584,13 @@ body {
           align-items: center;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__item .form__searchedCities, .main__aside.aside .aside__form.form .form__container .form__item .searchedCities {
+.aside__form.form .form__container .form__item .form__searchedCities, .aside__form.form .form__container .form__item .searchedCities {
   display: none;
   height: auto;
   max-height: 88px;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__item .form__searchedCities--active, .main__aside.aside .aside__form.form .form__container .form__item .searchedCities--active {
+.aside__form.form .form__container .form__item .form__searchedCities--active, .aside__form.form .form__container .form__item .searchedCities--active {
   display: block;
   width: 220px;
   position: absolute;
@@ -579,7 +602,7 @@ body {
   overflow: scroll;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__item .form__searchedCities .searchedCities__item, .main__aside.aside .aside__form.form .form__container .form__item .searchedCities .searchedCities__item {
+.aside__form.form .form__container .form__item .form__searchedCities .searchedCities__item, .aside__form.form .form__container .form__item .searchedCities .searchedCities__item {
   border: 1px solid rgba(212, 237, 255, 0.2);
   border-left: none;
   border-right: none;
@@ -589,13 +612,14 @@ body {
   overflow: hidden;
   width: 100%;
   color: rgba(255, 255, 255, 0.69);
+  cursor: pointer;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__item .form__searchedCities .searchedCities__item--last, .main__aside.aside .aside__form.form .form__container .form__item .searchedCities .searchedCities__item--last {
+.aside__form.form .form__container .form__item .form__searchedCities .searchedCities__item--last, .aside__form.form .form__container .form__item .searchedCities .searchedCities__item--last {
   border-bottom: none;
 }
 
-.main__aside.aside .aside__form.form .form__container .form__text {
+.aside__form.form .form__container .form__text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -626,5 +650,25 @@ body {
   to {
     visibility: visible;
   }
+}
+
+.main {
+  display: none;
+  color: white;
+}
+
+.main--active {
+  display: block;
+}
+
+.main__barIcon {
+  height: 34px;
+  width: 34px;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 32px;
+  color: white;
+  border: none;
+  background: transparent;
 }
 /*# sourceMappingURL=main.css.map */
