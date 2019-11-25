@@ -266,8 +266,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
 
-
-
     mainBarButton.addEventListener('click', () => {
       aside.classList.toggle("aside--hide");
       aside.style.animationDelay = "0.1s"
@@ -281,6 +279,31 @@ document.addEventListener("DOMContentLoaded", function() {
           document.querySelector(".main").classList.add("main--active");       
     })
 
+    document.querySelector('.form__button--btn').addEventListener('click',event => {
+      const locationApiKey = "aa7fb0e2be6e4d9aa01e8908a1b619f7"
+      if("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          fetch(`https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}%2C+${position.coords.longitude}&key=${locationApiKey}`)
+          .then(resp => resp.json())
+          .then(data => {
+            const city = data.results[0].components.city;
+            formInput.value = city;
+            chosenCity = city;
+            localStorage.setItem("chosenCity", chosenCity);
+            if (chosenCity !== "") {
+              document.querySelector(".aside").classList.add("aside--hide");
+              document.querySelector(".main").classList.add("main--active");
+              createMainContent(chosenCity);
+            }
+          })
+          .catch(err => console.log(err))
+        });
+      } else {
+        console.log("Geolocalization not work")
+      }
+     
+    });
+    
   };
 
   main();
