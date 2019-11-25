@@ -2,15 +2,14 @@
 
 body
     min-height: 100vh
-    max-width: 100vh
-    overflow: hidden
     background: linear-gradient(180deg, #002947 0%, rgba(56,144,207,0.79) 100%)
     font-family: 'Ubuntu', sans-serif
     position: relative
+    min-width: 320px
+    @media (min-width: 1366px)
+        overflow-y: hidden
 
 main
     min-height: 100vh
-    max-width: 100vh
-    overflow: hidden
     
 @import "./_import.sass"

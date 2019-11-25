@@ -228,18 +228,21 @@ textarea {
 
 body {
   min-height: 100vh;
-  max-width: 100vh;
-  overflow: hidden;
   background: -webkit-gradient(linear, left top, left bottom, from(#002947), to(rgba(56, 144, 207, 0.79)));
   background: linear-gradient(180deg, #002947 0%, rgba(56, 144, 207, 0.79) 100%);
   font-family: 'Ubuntu', sans-serif;
   position: relative;
+  min-width: 320px;
+}
+
+@media (min-width: 1366px) {
+  body {
+    overflow-y: hidden;
+  }
 }
 
 main {
   min-height: 100vh;
-  max-width: 100vh;
-  overflow: hidden;
 }
 
 .loading-cloud {
@@ -431,7 +434,8 @@ main {
 }
 
 .aside {
-  min-height: 100vh;
+  min-height: 568px;
+  height: 100vh;
   display: block;
   visibility: hidden;
   -webkit-animation: showAside 0.1s;
@@ -443,8 +447,25 @@ main {
   position: relative;
 }
 
+@media (min-width: 1366px) {
+  .aside {
+    background-color: red;
+    width: 400px;
+    float: left;
+    -webkit-animation-delay: 2.45s;
+            animation-delay: 2.45s;
+    background: rgba(255, 255, 255, 0.23);
+  }
+}
+
 .aside--hide {
   display: none;
+}
+
+@media (min-width: 1366px) {
+  .aside--hide {
+    display: block;
+  }
 }
 
 .aside__icon {
@@ -456,18 +477,55 @@ main {
   position: absolute;
   top: 10px;
   right: 10px;
+  z-index: 1;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .aside__icon {
+    height: 50px;
+    width: 50px;
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .aside__icon {
+    display: none;
+  }
 }
 
 .aside__icon--active {
   display: block;
 }
 
+@media (min-width: 1366px) {
+  .aside__icon--active {
+    display: none;
+  }
+}
+
 .aside__logo {
+  position: relative;
   position: absolute;
-  top: 60px;
+  top: 50px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  text-align: center;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .aside__logo {
+    top: 80px;
+  }
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .aside__logo .aside__logoImage {
+    height: 180px;
+    width: 300px;
+    top: 100px;
+  }
 }
 
 .aside__logo .aside__title {
@@ -482,21 +540,47 @@ main {
   font-weight: 400;
 }
 
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .aside__logo .aside__title {
+    font-size: 30px;
+    min-width: 200px;
+    bottom: 50px;
+  }
+}
+
 .aside__form.form {
   position: absolute;
-  bottom: 140px;
+  top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -30%);
+          transform: translate(-50%, -30%);
   background: rgba(255, 255, 255, 0.23);
   height: 180px;
   width: 260px;
 }
 
+@media (min-height: 812px) {
+  .aside__form.form {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .aside__form.form {
+    height: 250px;
+    width: 350px;
+  }
+}
+
 .aside__form.form .form__container {
   height: 100px;
   width: 220px;
-  margin: 40px 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -504,6 +588,14 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .aside__form.form .form__container {
+    height: 150px;
+    width: 310px;
+    font-size: 26px;
+  }
 }
 
 .aside__form.form .form__container .form__item {
@@ -553,6 +645,14 @@ main {
   font-size: 12px;
 }
 
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .aside__form.form .form__container .form__item .form__button--in {
+    height: 40px;
+    width: 40px;
+    font-size: 18px;
+  }
+}
+
 .aside__form.form .form__container .form__item .form__button--hidden {
   display: none;
 }
@@ -594,6 +694,12 @@ main {
   max-height: 88px;
 }
 
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .aside__form.form .form__container .form__item .form__searchedCities, .aside__form.form .form__container .form__item .searchedCities {
+    max-height: 120px;
+  }
+}
+
 .aside__form.form .form__container .form__item .form__searchedCities--active, .aside__form.form .form__container .form__item .searchedCities--active {
   display: block;
   width: 220px;
@@ -604,6 +710,19 @@ main {
   background: rgba(39, 88, 123, 0.96);
   border-radius: 0px 0px 5px 5px;
   overflow: scroll;
+  overflow-x: hidden;
+}
+
+.aside__form.form .form__container .form__item .form__searchedCities--active::-webkit-scrollbar, .aside__form.form .form__container .form__item .searchedCities--active::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .aside__form.form .form__container .form__item .form__searchedCities--active, .aside__form.form .form__container .form__item .searchedCities--active {
+    width: 310px;
+    top: 40px;
+  }
 }
 
 .aside__form.form .form__container .form__item .form__searchedCities .searchedCities__item, .aside__form.form .form__container .form__item .searchedCities .searchedCities__item {
@@ -617,6 +736,14 @@ main {
   width: 100%;
   color: rgba(255, 255, 255, 0.69);
   cursor: pointer;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .aside__form.form .form__container .form__item .form__searchedCities .searchedCities__item, .aside__form.form .form__container .form__item .searchedCities .searchedCities__item {
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+  }
 }
 
 .aside__form.form .form__container .form__item .form__searchedCities .searchedCities__item--last, .aside__form.form .form__container .form__item .searchedCities .searchedCities__item--last {
@@ -666,67 +793,168 @@ main {
   display: block;
 }
 
+@media (min-width: 1366px) {
+  .main--active {
+    width: calc(100vw - 400px);
+    float: right;
+  }
+}
+
 .main__barIcon {
   height: 34px;
   width: 34px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
   font-size: 32px;
   color: white;
   border: none;
   background: transparent;
 }
 
+@media (min-width: 1366px) {
+  .main__barIcon {
+    display: none;
+  }
+}
+
 .main__mainContent, .main .mainContent {
   position: relative;
+  width: 100%;
+  min-height: calc(568px - 54px);
+  height: calc(100vh - 54px);
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent, .main .mainContent {
+    height: 100vh;
+  }
 }
 
 .main__mainContent .mainContent__fullDate, .main .mainContent .mainContent__fullDate {
-  position: absolute;
-  top: 15px;
-  right: 20px;
+  width: 240px;
+  float: right;
+  margin-top: -40px;
   text-align: center;
   font-size: 16px;
 }
 
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__fullDate, .main .mainContent .mainContent__fullDate {
+    font-size: 18px;
+    width: 300px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__fullDate, .main .mainContent .mainContent__fullDate {
+    margin-top: 0;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 28px;
+    width: 400px;
+  }
+}
+
 .main__mainContent .mainContent__city, .main .mainContent .mainContent__city {
-  position: absolute;
-  top: 150px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  padding-top: 80px;
   font-size: 35px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   text-align: center;
+  max-width: 376px;
+  margin: 0 auto;
+}
+
+@media (min-height: 812px) {
+  .main__mainContent .mainContent__city, .main .mainContent .mainContent__city {
+    padding-top: 100px;
+  }
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__city, .main .mainContent .mainContent__city {
+    font-size: 50px;
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__city, .main .mainContent .mainContent__city {
+    padding-top: 0;
+    font-size: 62px;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: 400px;
+    max-width: 400px;
+  }
 }
 
 .main__mainContent .mainContent__weatherImg, .main .mainContent .mainContent__weatherImg {
-  position: absolute;
-  top: 75px;
-  z-index: -1;
-  right: 20px;
+  float: right;
+  margin-right: 30px;
   height: 70px;
   width: 80px;
 }
 
+@media (min-height: 812px) {
+  .main__mainContent .mainContent__weatherImg, .main .mainContent .mainContent__weatherImg {
+    height: 80px;
+    width: 100px;
+  }
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherImg, .main .mainContent .mainContent__weatherImg {
+    height: 120px;
+    width: 150px;
+    margin-top: 20px;
+    margin-right: 40px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherImg, .main .mainContent .mainContent__weatherImg {
+    height: 90px;
+    width: 120px;
+    position: absolute;
+    top: 100px;
+    left: 580px;
+  }
+}
+
 .main__mainContent .mainContent__weatherDescribe, .main .mainContent .mainContent__weatherDescribe {
-  position: absolute;
-  top: 230px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  margin-top: 10px;
   font-size: 16px;
   text-align: center;
   width: auto;
 }
 
+@media (min-height: 812px) {
+  .main__mainContent .mainContent__weatherDescribe, .main .mainContent .mainContent__weatherDescribe {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDescribe, .main .mainContent .mainContent__weatherDescribe {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDescribe, .main .mainContent .mainContent__weatherDescribe {
+    position: absolute;
+    top: 350px;
+    left: 300px;
+    font-size: 20px;
+    width: 200px;
+  }
+}
+
 .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer {
-  position: absolute;
-  top: 270px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  margin: 10px auto;
   height: 100px;
   width: 280px;
   display: -webkit-box;
@@ -740,28 +968,346 @@ main {
       flex-wrap: wrap;
 }
 
+@media (min-height: 812px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer {
+    margin: 20px auto;
+  }
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer {
+    height: 200px;
+    width: 400px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer {
+    position: absolute;
+    top: 400px;
+    left: 200px;
+    width: 400px;
+    height: 220px;
+  }
+}
+
 .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item {
   height: 50px;
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
 }
 
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item {
+    height: 100px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item {
+    height: 110px;
+  }
+}
+
 .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem {
+  -ms-flex-preferred-size: 33.33%;
+      flex-basis: 33.33%;
+  text-align: center;
+  margin-top: 15px;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem {
+    font-size: 20px;
+  }
+}
+
+.main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem .weatherDataContainer__listItem--bold, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem .weatherDataContainer__listItem--bold {
+  line-height: 25px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem .weatherDataContainer__listItem--bold, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem .weatherDataContainer__listItem--bold {
+    line-height: 40px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem .weatherDataContainer__listItem--bold, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__item--last .weatherDataContainer__listItem .weatherDataContainer__listItem--bold {
+    line-height: 30px;
+  }
 }
 
 .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__temp, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__temp {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 26px;
+  text-align: center;
+  line-height: 40px;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__temp, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__temp {
+    font-size: 35px;
+    line-height: 90px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__temp, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__temp {
+    font-size: 40px;
+    line-height: 110px;
+  }
+}
+
+.main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__list, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__list {
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__list .weatherDataContainer__listItem, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__list .weatherDataContainer__listItem {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__list .weatherDataContainer__listItem, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__list .weatherDataContainer__listItem {
+    margin: 0 auto;
+    line-height: 40px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__list .weatherDataContainer__listItem, .main .mainContent .mainContent__weatherDataContainer.weatherDataContainer .weatherDataContainer__list .weatherDataContainer__listItem {
+    font-size: 20px;
+    line-height: 50px;
+  }
+}
+
+.main__mainContent .mainContent__weatherDaysContainer, .main .mainContent .mainContent__weatherDaysContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 200px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (min-height: 812px) {
+  .main__mainContent .mainContent__weatherDaysContainer, .main .mainContent .mainContent__weatherDaysContainer {
+    height: 250px;
+  }
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDaysContainer, .main .mainContent .mainContent__weatherDaysContainer {
+    height: 280px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDaysContainer, .main .mainContent .mainContent__weatherDaysContainer {
+    height: 600px;
+    width: 300px;
+    right: 50px;
+    bottom: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item {
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  overflow: hidden;
+  border: 1px solid rgba(212, 237, 255, 0.2);
+  text-align: center;
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item {
+    position: relative;
+  }
+}
+
+.main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__weekDay, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__weekDay {
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__weekDay, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__weekDay {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__weekDay, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__weekDay {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 18px;
+  }
+}
+
+.main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__dayMonth, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__dayMonth {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__dayMonth, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__dayMonth {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__dayMonth, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__dayMonth {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    font-size: 18px;
+  }
+}
+
+.main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__img, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__img {
+  height: 45px;
+  width: 45px;
+  margin: 10px auto 0 auto;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__img, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__img {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__img, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__img {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+  }
+}
+
+.main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp, .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure {
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+@media (min-width: 411px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp, .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure {
+    font-size: 14px;
+  }
+}
+
+@media (min-height: 812px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp, .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp, .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp, .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure {
+    font-size: 22px;
+    position: absolute;
+    top: 30px;
+    left: 90px;
+  }
+}
+
+.main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp .weatherDaysContainer__temp--bold, .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure .weatherDaysContainer__temp--bold, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp .weatherDaysContainer__temp--bold, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure .weatherDaysContainer__temp--bold {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp .weatherDaysContainer__temp--bold, .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure .weatherDaysContainer__temp--bold, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp .weatherDaysContainer__temp--bold, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure .weatherDaysContainer__temp--bold {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp .weatherDaysContainer__temp--bold, .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure .weatherDaysContainer__temp--bold, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp .weatherDaysContainer__temp--bold, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure .weatherDaysContainer__temp--bold {
+    position: absolute;
+    top: 0;
+    left: 120px;
+    width: 80px;
+  }
+}
+
+.main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__temp {
+  margin-top: 10px;
+}
+
+.main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure {
+  height: 32px;
+}
+
+@media (min-width: 1366px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure {
+    top: 60px;
+  }
+}
+
+.main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure .weatherDaysContainer__temp--bold, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__item .weatherDaysContainer__pressure .weatherDaysContainer__temp--bold {
+  display: block;
+  padding-top: 5px;
+}
+
+.main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__noItems, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__noItems {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px) {
+  .main__mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__noItems, .main .mainContent .mainContent__weatherDaysContainer .weatherDaysContainer__noItems {
+    font-size: 20px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,14 +1,22 @@
 .aside
-    min-height: 100vh
-    //background: rgba(255, 255, 255, 0.23) dla desktop
+    min-height: 568px
+    height: 100vh
     display: block
     visibility: hidden
     animation: showAside 0.1s
     animation-delay: 2.8s
     animation-fill-mode: forwards
     position: relative
+    @media (min-width: 1366px)
+        background-color: red
+        width: 400px
+        float: left
+        animation-delay: 2.45s
+        background: rgba(255, 255, 255, 0.23)
     &--hide
         display: none
+        @media (min-width: 1366px)
+            display: block
     &__icon
         display: none
         color: white
@@ -18,13 +26,31 @@
         position: absolute
         top: 10px
         right: 10px
+        z-index: 1
+        @media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px)
+            height: 50px
+            width: 50px
+            font-size: 50px
+        @media (min-width: 1366px)
+            display: none
         &--active
             display: block
+            @media (min-width: 1366px)
+                display: none
     &__logo
+        position: relative
         position: absolute
-        top: 60px
+        top: 50px
         left: 50%
         transform: translateX(-50%)
+        text-align: center
+        @media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px)
+            top: 80px
+        .aside__logoImage
+            @media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px)
+                height: 180px
+                width: 300px
+                top: 100px
         .aside__title
             position: absolute
             bottom: 35px
@@ -34,20 +60,36 @@
             font-size: 23px
             color: #003C67
             font-weight: 400
+            @media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px)
+                font-size: 30px
+                min-width: 200px
+                bottom: 50px
     &__form.form
         position: absolute
-        bottom: 140px
+        top: 50%
         left: 50%
-        transform: translateX(-50%)
+        transform: translate(-50%,-30%)
         background: rgba(255, 255, 255, 0.23)
         height: 180px
         width: 260px
+        @media (min-height: 812px)
+            transform: translate(-50%,-50%)
+        @media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px)
+            height: 250px
+            width: 350px
         .form__container
             height: 100px
             width: 220px
-            margin: 40px 20px 
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
             display: flex
             flex-direction: column
+            @media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px)
+                height: 150px
+                width: 310px
+                font-size: 26px
             .form__item
                 flex-basis: 33%
                 text-align: center
@@ -78,6 +120,10 @@
                         color: white
                         border-radius: 50%
                         font-size: 12px
+                        @media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px)
+                            height: 40px
+                            width: 40px
+                            font-size: 18px
                     &--hidden
                         display: none
                     &--btn
@@ -103,6 +149,8 @@
                     display: none
                     height: auto
                     max-height: 88px
+                    @media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px)
+                        max-height: 120px
                     &--active
                         display: block
                         width: 220px
@@ -113,6 +161,13 @@
                         background: rgba(39, 88, 123, 0.96)
                         border-radius: 0px 0px 5px 5px
                         overflow: scroll
+                        overflow-x: hidden
+                        &::-webkit-scrollbar 
+                            width: 0px
+                            background: transparent
+                        @media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px)
+                            width: 310px
+                            top: 40px
                     .searchedCities__item
                         border: 1px solid rgba(212, 237, 255, 0.2)
                         border-left: none
@@ -124,6 +179,10 @@
                         width: 100%
                         color: rgba(255, 255, 255, 0.69)
                         cursor: pointer
+                        @media (min-width: 768px) and (min-height: 1024px), (min-width: 1024px) and (min-height: 768px)
+                            height: 30px
+                            line-height: 30px
+                            font-size: 18px
                         &--last
                             border-bottom: none
                                                    
