@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   const getWeather5Days = (city) => {
-    return fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${weatherApiKey}&units=metric`)
+    return fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${weatherApiKey}&units=metric`)
            .then(resp => resp.json())
            .then(data => data)
            .catch(err => console.log(err));
