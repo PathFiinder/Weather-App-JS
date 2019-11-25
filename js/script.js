@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <h3 class="weatherDaysContainer__weekDay">${getWeekdayShort(tomorrow.getDay())}</h3>
                 <h3 class="weatherDaysContainer__dayMonth">${tomorrow.getDate()} ${getMonthName(tomorrow.getMonth()).slice(0,3)}</h3>
                 ${flag === true ?
-                 `<img class="weatherDaysContainer__img" src="./images/${getWeather(value.weather[0].icon).iconNr}.png" alt="Weather img">
+                 `<img class="weatherDaysContainer__img" src="images/${getWeather(value.weather[0].icon).iconNr}.png" alt="Weather img">
                   <p class="weatherDaysContainer__temp">temp. max </br><span class="weatherDaysContainer__temp--bold">${(value.main.temp_max).toFixed(0)} <sup style="font-size:xx-small; vertical-align:super; font-size: 15px;">o</sup>C</p>
                   <p class="weatherDaysContainer__pressure">ciśnienie </br><span class="weatherDaysContainer__temp--bold">${(value.main.pressure).toFixed(0)} hPa</p>` 
                   : `<h3 class="weatherDaysContainer__noItems">Brak danych</h3>`}
