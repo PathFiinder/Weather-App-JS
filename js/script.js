@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   const loadWeather = (city) => {
-    return fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${weatherApiKey}&units=metric`)
+    return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${weatherApiKey}&units=metric`)
            .then(resp => resp.json())
            .then(data => data)
            .catch(error => console.log(error));
@@ -97,14 +97,12 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   }
 
-
   const getWeather5Days = (city) => {
     return fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${weatherApiKey}&units=metric`)
            .then(resp => resp.json())
            .then(data => data)
            .catch(err => console.log(err));
   }
-
 
   const createListDate = (list) => {
     let listInnerHtml = "";
@@ -113,12 +111,9 @@ document.addEventListener("DOMContentLoaded", function() {
     if (list.length === 4) {
       for(let i=0;i<=4;i++){
         if(i === 4){
-          listInnerHtml += createSingleDate(list[i],index,false);
-          console.log(i)
-                              
+          listInnerHtml += createSingleDate(list[i],index,false);        
         } else {
           listInnerHtml += createSingleDate(list[i],index,true);
-          console.log(i)
         }        
         index++;
       }
@@ -136,7 +131,6 @@ document.addEventListener("DOMContentLoaded", function() {
       const today = new Date();
       const tomorrow = new Date();
       tomorrow.setDate(today.getDate() + index);
-      console.log(value)
       return `<div class="weatherDaysContainer__item">
                 <h3 class="weatherDaysContainer__weekDay">${getWeekdayShort(tomorrow.getDay())}</h3>
                 <h3 class="weatherDaysContainer__dayMonth">${tomorrow.getDate()} ${getMonthName(tomorrow.getMonth()).slice(0,3)}</h3>
@@ -149,7 +143,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>`
       
   }
-
 
   const createMainContent = async value => {
 
@@ -253,21 +246,27 @@ document.addEventListener("DOMContentLoaded", function() {
       formInput.value = chosenCity;
 
       localStorage.setItem("chosenCity", chosenCity);
-      console.log(chosenCity);
-      console.log(findedCities);
     });
+
+    formInput.addEventListener('keypress', event => {
+      if(event.keyCode === 13){
+        if (chosenCity !== "") {
+          document.querySelector(".aside").classList.add("aside--hide");
+          document.querySelector(".main").classList.add("main--active");
+          createMainContent(chosenCity);
+        }
+      }
+    })
 
     document.querySelector(".form__button--in").addEventListener("click", event => {
         if (chosenCity !== "") {
           document.querySelector(".aside").classList.add("aside--hide");
           document.querySelector(".main").classList.add("main--active");
-
-          console.log(chosenCity)
           createMainContent(chosenCity);
-          
-
         }
       });
+
+
 
     mainBarButton.addEventListener('click', () => {
       aside.classList.toggle("aside--hide");
